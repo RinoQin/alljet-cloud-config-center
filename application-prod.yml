@@ -1,0 +1,280 @@
+mail:
+  config:
+    username: dc.alert@puscene.com
+    password: 6a3c7f5c87dZcwKP
+    from: dc.alert@puscene.com
+    to: liu.yu@puscene.com
+    ccList: xu.guanguo@puscene.com;liu.yu@puscene.com;xu.mingxun@puscene.com;qin.yuchen@puscene.com
+    bccList:
+
+appKey:
+  keys: mf:8facfb8b802c023a89f98f81f813c6ea,md:c4eo38a96a36c8ba4510c822c0df8e78,mxr:954f4c23472378884804d22449abf4af,wm:c4836clee2ab0ca8618bec6f27e3988b,admin:9b1db8983eddc213b30abcf89f3a4ebf,centerCtrl:1a1db3503eddc213b30abcf89f3a4e3e,cp:5u1db250xeddc253b30abcf89f3a9e3e,pos:6u4db150xedfe253b30abcf89f4a9e3d,express:350ea28b6c394a3f8986452310f8a5e3
+
+env: prod
+
+checkSign: false
+
+config:
+  version: 20180707-PROD
+
+alfred-jdbc:
+    master: jdbc:mysql://10.1.28.176:3306/alfred?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true&useLocalSessionState=true&autoReconnect=true&failOverReadOnly=false&noAccessToProcedureBodies=true&useTimezone=true&serverTimezone=Hongkong
+    slave: jdbc:mysql://10.1.28.175:3306/alfred?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true&useLocalSessionState=true&autoReconnect=true&failOverReadOnly=false&noAccessToProcedureBodies=true&useTimezone=true&serverTimezone=Hongkong
+    username: ordnet_dev
+    password: l2vswmwupa7<dgdgfrIA
+    testOnBorrow: true
+    initSize: 5
+    minIdle: 1
+    maxActive: 20
+
+alfred-mobile-jdbc:
+    master: jdbc:mysql://10.1.28.176:3306/alfred-mobile?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true&useLocalSessionState=true&autoReconnect=true&failOverReadOnly=false&noAccessToProcedureBodies=true&useTimezone=true&serverTimezone=Hongkong
+    slave: jdbc:mysql://10.1.28.175:3306/alfred-mobile?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true&useLocalSessionState=true&autoReconnect=true&failOverReadOnly=false&noAccessToProcedureBodies=true&useTimezone=true&serverTimezone=Hongkong
+    history: jdbc:mysql://10.1.30.245:3306/alfred-mobile?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true&useLocalSessionState=true&autoReconnect=true&failOverReadOnly=false&noAccessToProcedureBodies=true&useTimezone=true&serverTimezone=Hongkong
+    username: ordnet_dev
+    password: l2vswmwupa7<dgdgfrIA
+    testOnBorrow: true
+    initSize: 5
+    minIdle: 1
+    maxActive: 20
+
+alfred-offline-jdbc:
+    master: jdbc:mysql://10.1.39.83:4000/alfred-offline?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true&useLocalSessionState=true&autoReconnect=true&failOverReadOnly=false&noAccessToProcedureBodies=true&useTimezone=true&serverTimezone=Hongkong
+    slave: jdbc:mysql://10.1.39.83:4000/alfred-offline?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&allowMultiQueries=true&useLocalSessionState=true&autoReconnect=true&failOverReadOnly=false&noAccessToProcedureBodies=true&useTimezone=true&serverTimezone=Hongkong
+    username: tidb_user
+    password: SFE@Gfre24#
+    testOnBorrow: true
+    initSize: 5
+    minIdle: 1
+    maxActive: 20
+
+alfred-offline-pg-jdbc:
+    master: jdbc:postgresql://10.1.39.83:5432/alfred-offline?charSet=utf-8
+    slave: jdbc:postgresql://10.1.39.83:5432/alfred-offline?charSet=utf-8
+    username: tidb_user
+    password: SFE@Gfre24#
+    testOnBorrow: true
+    initSize: 5
+    minIdle: 1
+    maxActive: 20
+
+redis:
+    maxIdle: 8
+    minIdle: 1
+    maxTotal: 300
+    maxWait: 1000
+    timeout: 100000
+    testOnBorrow: true
+    testOnReturn: true
+    passwd:
+    sentinel:
+      group: sentinel-10.1.30.64-6379
+      nodes: 10.1.30.64:6380,10.1.30.65:6380,10.1.30.66:6379
+
+kafka:
+    brokers: 10.1.29.86,10.1.29.87,10.1.29.88
+    zkNodes: 10.1.29.86,10.1.29.87,10.1.29.88
+    zkPort: 2181
+    brokerPort: 9092
+
+mq:
+   broker:
+      url: failover:(tcp://10.1.30.246:61616,tcp://10.1.30.247:61616)?randomize=false&backup=true&jms.useAsyncSend=true&jms.prefetchPolicy.queuePrefetch=1
+   username:
+   password:
+   backup: false
+
+sleuth:
+    sampler:
+      percentage: 0.1
+
+demo:
+  app:
+    port: 7031
+    maxPageSize: 50
+
+zuul:
+  app:
+    env: prod
+    port: 8030
+    ignoreTokenCheckUrls: ping.json,info.json,sf/push,dd/push
+    blacklistUrl: "NONE"
+#    blacklistUrl: "/cat/offline/upload"
+    gatedLaunchMap:
+      order-manage-service: false|shopId|3451
+      express-service: false|manageShopId|43
+      order-cat-service: false|version|1.0
+      order-demo-service: false|machine|null
+
+manage:
+  app:
+    port: 8031
+    maxPageSize: 50
+    takeaway:
+      elemeAppKey: nyDThf9i5I
+      elemeAppSecret: 421a52d6adf7fdb2e15938205c6bf196270c1f0a
+      sandBox: false
+      meituanAppKey: 100178
+      meituanAppSecret: npwm9uvhmk1y1cdk
+    sfParentId: MWEE
+    sfNewAppId: 1495911763
+    sfNewAppKey: eb6ad35d1064a16afb26597377ff0fc0
+    menuRsyncAdminUrl: http://admin.dc.mwbyd.cn/services/admin/
+    adminAppId: admin
+    adminAppKey: 9b1db8983eddc213b30abcf89f3a4ebf
+    dadaAppKey: dada03de34198345f5d
+    dadaAppSecret: 0a2350293b0379e1b19fd42963e8e4eb
+    dadaBaseUrl: http://newopen.imdada.cn
+    baseUrl: http://dc.cloud-manage.mwee.cn
+cat:
+  app:
+    port: 8032
+    cascadingCategoryRestaurantType: 2|4
+    maxPageSize: 50
+    openUrl: http://core.open.mwbyd.cn/services/developer/findWhiteListShopByAuthId
+    shopConfigUrl: http://c.shop.biz.mwbyd.cn/services/cshop/getShopTableConfig
+    directUrl: http://route.biz.mwbyd.cn/services/route/direct
+    notifyUrl: http://route.biz.mwbyd.cn/services/route/distribute
+    appId: 1001
+    appKey: key
+    menuRsyncAdminUrl: http://admin.dc.mwbyd.cn/services/admin/
+    adminAppId: admin
+    adminAppKey: 9b1db8983eddc213b30abcf89f3a4ebf
+express:
+  app:
+    port: 8033
+    maxPageSize: 50
+    sfUrl: http://ESG-ISP-GW.sf-express.com/services/o2oinbound
+    sfAesKey: RsKPs9DELD0QJc2G4OkQpOYIfHpJ7258
+    sfSha512Key: q13BxDH3EHxdxMRd6vHqhtYQwvhkdfQV
+    sfParentId: MWEE
+    sfNewUr: http://commit-openic.sf-express.com/open/api/external
+    sfNewAppId: 1495911763
+    sfNewAppKey: eb6ad35d1064a16afb26597377ff0fc0
+    dadaAppKey: dada03de34198345f5d
+    dadaAppSecret: 0a2350293b0379e1b19fd42963e8e4eb
+    dadaBaseUrl: http://newopen.imdada.cn
+    baseUrl: http://dc.cloud-manage.mwee.cn
+table:
+  app:
+    port: 8034
+    maxPageSize: 50
+    isKoubeiTableCallBack: false
+    msgSendUrl2: http://route.biz.mwbyd.cn/services/route/distribute2
+    msgSendCallbackType: 1
+    msgSendService: 2
+
+mf:
+  app:
+    port: 8035
+    maxPageSize: 50
+
+orderCenter:
+  app:
+    port: 8036
+    maxPageSize: 50
+
+md:
+  app:
+    port: 8037
+    maxPageSize: 50
+    pressTestMode: false
+    pressTestShopId: 93033
+    mdSubmitOrderUrl: http://mobile-api.dc.mwbyd.cn/alfred-mobile-api/api/third/order/v2/submit.json
+    apiWpos9nowBaseUrl: http://pcdc.winpos.mwbyd.cn
+    rxMainOrderAutoConfirm: 0
+    menuRsyncAdminUrl: http://admin.dc.mwbyd.cn/services/admin/
+    adminAppId: admin
+    adminAppKey: 9b1db8983eddc213b30abcf89f3a4ebf
+
+rx:
+  app:
+    port: 8038
+    maxPageSize: 50
+    mdSubmitOrderUrl: http://mobile-api.dc.mwbyd.cn/alfred-mobile-api/api/third/order/v2/submit.json
+    apiWpos9nowBaseUrl: http://pcdc.winpos.mwbyd.cn
+    rxMainOrderAutoConfirm: 0
+  refund:
+    onlineBaseUrl: http://trade.pay.mwbyd.cn/
+    onlineRefundUrl: /refund
+    onlineRefundNotifyUrl: http://dc.cloud-manage.mwbyd.cn/rx/refund/notify
+    memRefundUrl: http://cp.mwee.cn/business/app.cardpay.refund
+    memRefundDiscountUrl: http://cp.mwee.cn/api/third.platform.cancelDeal/
+    onlineRefundTimeout: 3000
+    maxResponsiblePartyModifyTime: 1
+
+rxQuartz:
+  app:
+    port: 8039
+    maxPageSize: 50
+    zkAddress: 10.1.29.86:2181,10.1.29.87:2181,10.1.29.88:2181
+    billCronExpress: "0 0 6 * * ? "
+    orderSettlementCronExpress: "0 0 5 * * ? "
+    statisticCronExpress: "0 0 7 * * ? "
+    refundQueryCronExpress: "0 0/1 * * * ? "
+    clearTableStatusCronExpress: "0 0 4 * * ? "
+    namespace: rx-quartz
+    shardingCount: 2
+    shardingItemParameters: 0=A,1=B
+    cApiUrl: "http://capi.mwbyd.cn"
+    postThirdClientTimeout: 5000
+  refund:
+    onlineBaseUrl: http://trade.pay.mwbyd.cn/
+    onlineRefundQueryUrl: /query/refundQuery
+    onlineRefundNotifyUrl: http://dc.cloud-manage.mwbyd.cn/rx/refund/notify
+    onlineRefundTimeout: 3000
+    onlineRefundBeginTime: -240
+
+metrics:
+  enable: true
+  period: 15
+  host: 127.0.0.1
+  port: 8125
+  memFreeRatio: 0.9
+  demoPrefix: "order.demo-service"
+  catPrefix: "order.cat"
+  expressPrefix: "order.express"
+  tablePrefix: "order.table"
+  managePrefix: "order.cloud-admin"
+  zuulPrefix: "order.cloud-zuul"
+  mfPrefix: "order.mf"
+  mdPrefix: "order.md"
+  rxPrefix: "order.rx"
+  orderCenterPrefix: "order.order-center"
+  rxQuarzPrefix: "order.rx-quartz"
+
+mwapi:
+  editShopUrl: http://admin.shop.biz.mwbyd.cn/services/adminShop/shop.editShop
+  queryShopListUrl: http://admin.shop.biz.mwbyd.cn/services/adminShop/shop.getShopList
+  mfConfigUrl: http://c.shop.biz.mwbyd.cn/services/cshop/getSecondPayConfig
+  qryShopXmppAccountUrl: http://b.shop.biz.mwbyd.cn/services/bshop/queryShopAccList
+  queryCityInfoUrl: http://api.basic.biz.mwbyd.cn/services/api/city.getCityDetail
+  xmppServiceUrl: http://b.shop.biz.mwbyd.cn/services/bshop/xmppShopAccount
+  shopAuthUrl: http://b.shop.biz.mwbyd.cn/services/bshop/auth
+  parseSessionUrl: http://shop.mwbyd.cn/rest/business/
+  shopBranchsUrl: http://search.mwbyd.cn/explainsql
+  citysUrl: http://api.basic.biz.mwbyd.cn/services/api/city.getCityList
+  crmAppId: 1002
+  crmAppKey: 7cc696319dbf41a8d6dcb83380c8fc8b
+  apiWpos9nowBase: http://pcdc.winpos.mwbyd.cn
+  pushDirectUrl: http://route.biz.mwbyd.cn/services/route/direct
+  syncFood: false
+  pressTestMode: true
+  pressTestShopId: 3451
+  msgSendUrl2: http://route.biz.mwbyd.cn/services/route/distribute2
+  msgSendCallbackType: 1
+  msgSendService: 2
+  apiCp9nowBase: http://cp.mwbyd.cn
+  cpMethodPreordercust: http://member.soa.mwbyd.cn/services/shop/charge/preOrderCharge
+  koubeiMdCallBack: true
+  koubeiCallback: http://miaofu-api.mwbyd.cn/pay/api/KouBei.mdSynOrder
+  apiWechatClearShopCarcache: http://quickorder-dc.mwbyd.cn/api/v1/cart.clearShopCartCache
+  editShopInfoUrl: http://admin.shop.biz.mwbyd.cn/services/adminShop/shop.editShopInfo
+
+upload:
+  url: http://api.file.biz.mwbyd.cn/services/api/file.uploadFile
+  home: mwopen
+  appId: 1008
+  secret: 45e317198948ee64ad80bd3d5df85880
+  localTempPath: /data/application/temp/
+  uploadBasePath: /data/application/upload/
