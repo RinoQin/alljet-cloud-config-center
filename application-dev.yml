@@ -264,5 +264,5 @@ upload:
   home: biztest1
   appId: 1008
   secret: 45e317198948ee64ad80bd3d5df85880
-  localTempPath: /data/application/temp/
-  uploadBasePath: /data/application/upload/
+  localTempPath: /pojo/application/temp/
+  uploadBasePath: /pojo/application/upload/
