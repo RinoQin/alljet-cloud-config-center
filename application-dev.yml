@@ -88,14 +88,21 @@ demo:
 zuul:
   app:
     port: 8030
-    ignoreTokenCheckUrls: ping.json,info.json,sf/push,dd/push
-    blacklistUrl: "NONE"
+    ignoreCheckUrls: ping.json,info.json,sf/push,dd/push
+    ignoreTokenCheckUrls: NONE
+    blacklistUrls: NONE
     maxPageSize: 50
     gatedLaunchMap:
       order-manage-service: true|shopId|3451
       express-service: false|manageShopId|43
       order-cat-service: true|version|1.0
       order-demo-service: true|machine|null
+    appblackUrlsMap:
+      bbs: NONE
+
+bbs:
+  app:
+    port: 9000
 
 manage:
   app:
@@ -191,45 +198,6 @@ rx:
     onlineRefundTimeout: 3000
     maxResponsiblePartyModifyTime: 1
 
-rxQuartz:
-  app:
-    port: 8039
-    maxPageSize: 50
-    zkAddress: 10.0.19.71:2181,10.0.19.72:2181,10.0.19.73:2181
-    billCronExpress: "0 0 6 * * ? "
-    orderSettlementCronExpress: "0 0 5 * * ? "
-    statisticCronExpress: "0 0 7 * * ? "
-    refundQueryCronExpress: "0 0/1 * * * ? "
-    clearTableStatusCronExpress: "0 0 4 * * ? "
-    namespace: rx-quartz
-    shardingCount: 1
-    shardingItemParameters: 0=A,1=B
-    cApiUrl: "http://c-api.st.9now.net"
-    postThirdClientTimeout: 5000
-  refund:
-    onlineBaseUrl: http://trade.pay.test.cn
-    onlineRefundQueryUrl: /query/refundQuery
-    onlineRefundNotifyUrl: http://10.0.19.141:8030/rx/refund/notify
-    onlineRefundTimeout: 3000
-    onlineRefundBeginTime: -240
-
-metrics:
-  enable: true
-  period: 15
-  host: 10.0.21.113
-  port: 8125
-  memFreeRatio: 0.9
-  demoPrefix: "order.demo-service"
-  catPrefix: "order.cat"
-  expressPrefix: "order.express"
-  tablePrefix: "order.table"
-  managePrefix: "order.cloud-admin"
-  zuulPrefix: "order.cloud-zuul"
-  mfPrefix: "order.mf"
-  mdPrefix: "order.md"
-  rxPrefix: "order.rx"
-  orderCenterPrefix: "order.order-center"
-  rxQuarzPrefix: "order.rx-quartz"
 
 mwapi:
   editShopUrl: http://10.0.21.153:4051/services/adminShop/shop.editShop
