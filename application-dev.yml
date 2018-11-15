@@ -14,11 +14,11 @@ app:
       appNames: 001:bbs,002:blog,003:manage
       appKeys: bbs:8facfb8b802c023a89f98f81f813c6ea,blog:c4eo38a96a36c8ba4510c822c0df8e78,manage:954f4c23472378884804d22449abf4af
       publicKeys:
-        bbs:
+        bbs: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDceYVjb/nZTs/TJqZR7AxzdHZNUOrPSDnJV5ANjlfyKsQs9C6vGuuljfxdyUi14J9IWoIks7jHVaR6vISanoxYB/blOBX7Ukr5XNu5dkVI7RaWxikf/eHQVCrQEL26Z3hCk2K5iRfiQNo68UCnRxRKcvhLHRKvoOWKC3fTv2nAqwIDAQAB
         blog:
         manage:
       privateKeys:
-        bbs:
+        bbs: MIICdAIBADANBgkqhkiG9w0BAQEFAASCAl4wggJaAgEAAoGBANx5hWNv+dlOz9MmplHsDHN0dk1Q6s9IOclXkA2OV/IqxCz0Lq8a66WN/F3JSLXgn0hagiSzuMdVpHq8hJqejFgH9uU4FftSSvlc27l2RUjtFpbGKR/94dBUKtAQvbpneEKTYrmJF+JA2jrxQKdHFEpy+EsdEq+g5YoLd9O/acCrAgMBAAECfzqQDN5c4ADY7lsn6QXZrXT9em8PD0//31mb6KexJ6srsPA/7CaXAAD5tg8zaBznjWeqoucc1fgcx5PSf2aStrQtMJvfg8y5ND6ZXQ3WZfxdHZ717GoRbjk5DgPLkyXqc/4blAR2V6WHwYlcD09g0ESIB9XgoQsOacMffJI5j4ECQQDwqjwQulVTDftFlNY8ExPkEJH4Y3OyEDYG4fVFhDnhrAiyTz00WNhtD9I7yxf2gdl/QhaiH8sORXDepQTtxMKxAkEA6oXwci+0KKLCmMCqAAWyKoYTk0B/JsFyMeJQEIjGNHm/TBqLPM2v9ChGZCe+m2aZELTS8auphZ0EVUxuBdq4GwJBAIpPS3XRoHe68U1r3DNqQ2QuobU+cp9C8cnC0lLBSwKG+/h90Y7kAH2tOgVjEsJ4naalNJy36NqqzdMmw05iZgECQBcjc9+wOTQxKsXrbFpoNXXgmJnUqTbnqx6k14VqGTQgNvGJROeQ26VZO+ixyyqF6uAtFwrlBuq53S2VRt2pALUCQAI/XH9Yfv/sBiLWwjBCqBn4Gon9g9z5dTwhyCo955XhgOrPOhT/WHJsU+3J0rgDCwvAeBIBzrGvpZEaOayfGQ8=
         blog:
         manage:
 
