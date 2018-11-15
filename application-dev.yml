@@ -11,7 +11,7 @@ mail:
 
 app:
   register:
-      appIds: 001:bbs,002:blog,003:manage
+      appNames: 001:bbs,002:blog,003:manage
       appKeys: bbs:8facfb8b802c023a89f98f81f813c6ea,blog:c4eo38a96a36c8ba4510c822c0df8e78,manage:954f4c23472378884804d22449abf4af
       publicKeys:
         bbs:
